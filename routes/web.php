@@ -11,11 +11,14 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-route::group(
+Route::group(
     ['namespace' => 'Admin', 'prefix' => 'admin'],
     function () {
         Route::get('dashboard', 'DashboardController@index');
@@ -26,10 +29,3 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
