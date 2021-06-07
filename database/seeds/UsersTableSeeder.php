@@ -12,6 +12,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+
+
         $adminUser = [
             'name' => 'Admin',
             'email' => 'admin@example.com',

@@ -1,16 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="row">
+<div class="row">
     <div class="col-2 text-center py-4 text-light bg-success" style="min-height: 100vh">
-        <img src="https://via.placeholder.com/100" alt="" class="rounded-circle">
+        <img src="" alt="" class="rounded-circle">
         <p class="mb-4 mt-3 font-weight-bold h5">{{ $user->name }}</p>
 
         <hr class="bg-light">
 
         <div class="d-flex flex-column px-3">
+            @if (Auth::user()->role == 'admin')
             <a href="#" class="btn btn-light mb-3">Pengambilan Keputusan</a>
             <a href="#" class="btn btn-light mb-3">Riwayat Pengambilan Keputusan</a>
+            <a href="#" class="btn btn-light mb-3">Edit Suparepart</a>
+            <a href="#" class="btn btn-light mb-3">Apa aja</a>
+            @else
+            <a href="#" class="btn btn-light mb-3">Pengambilan Keputusan</a>
+            <a href="#" class="btn btn-light mb-3">Riwayat Pengambilan Keputusan</a>
+            @endif
         </div>
     </div>
     <div class="col-10 pl-0">
@@ -25,5 +32,5 @@
             </p>
         </div>
     </div>
-  </div>
+</div>
 @endsection

@@ -19,13 +19,18 @@ Route::get('/', function () {
 });
 
 Route::group(
-    ['namespace' => 'Admin', 'prefix' => 'admin'],
+    ['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth']],
     function () {
-        Route::get('dashboard', 'DashboardController@index');
+        Route::get('dashbsoard', 'DashboardController@index');
+        Route::get('admin', function () {
+            return view('layout');
+        })->middleware('checkRole:admin');
+        Route::get('user', function () {
+            return view('home');
+        })->middleware(['checkRole:user, admin']);
     }
 );
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/', 'HomeController@index')->name('home');
