@@ -22,6 +22,7 @@ Route::group(
     ['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth']],
     function () {
         Route::get('dashbsoard', 'DashboardController@index');
+
         Route::get('admin', function () {
             return view('layout');
         })->middleware('checkRole:admin');
@@ -34,3 +35,9 @@ Route::group(
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('pengambilankeputusan', 'PengambilankeputusanController@index');
+Route::get('histori', 'HistoriController@index');
+Route::get('sparepart', 'SparepartController@index');
+Route::get('/sparepart/hapus/{id}', 'SparepartController@hapus');
+Route::get('/sparepart/tambah', 'SparepartController@tambah');
+Route::get('formtambah', 'FormtambahController@index');
