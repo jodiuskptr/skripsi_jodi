@@ -9,6 +9,6 @@ class PengambilankeputusanController extends Controller
 {
     function index()
     {
-        return view('user.pengambilankeputusan');
+        return view('User.pengambilankeputusan');
     }
 }

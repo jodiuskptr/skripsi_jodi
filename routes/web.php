@@ -35,9 +35,9 @@ Route::group(
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('pengambilankeputusan', 'PengambilankeputusanController@index');
+Route::get('pengambilankeputusan', 'PengambilankeputusanController@index')->name('pengambilankeputusan');
 Route::get('histori', 'HistoriController@index');
 Route::get('sparepart', 'SparepartController@index');
 Route::get('/sparepart/hapus/{id}', 'SparepartController@hapus');
-Route::get('/sparepart/tambah', 'SparepartController@tambah');
+Route::get('sparepart/tambah', 'SparepartController@tambah');
 Route::get('formtambah', 'FormtambahController@index');

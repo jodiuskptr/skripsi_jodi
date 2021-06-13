@@ -11,8 +11,9 @@ class SparepartController extends Controller
     function index()
     {
 
-        $sparepart = DB::table('sparepart')->get();
-        return view('admin.sparepart', ['sparepart' => $sparepart]);
+        // $sparepart = DB::table('sparepart')->get();
+        // return view('admin.sparepart', ['sparepart' => $sparepart]);
+        return view('admin.sparepart');
     }
 
     function hapus($id)

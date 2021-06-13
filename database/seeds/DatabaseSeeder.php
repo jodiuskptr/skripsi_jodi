@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UsersTableSeeder::class);
         //role
-        $admin = Role::updateOrCreate(['name' => 'admin']);
-        $user = Role::updateOrCreate(['name' => 'user']);
+        Role::updateOrCreate(['name' => 'admin']);
+        Role::updateOrCreate(['name' => 'user']);
     }
 }

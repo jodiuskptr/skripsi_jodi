@@ -12,42 +12,43 @@
     </div>
 
     <div class="col-10 pl-0">
-        <div class="jumbotron mb-0">
-            <section class="main-section" id="service">
-                <!--main-section-start-->
-                <table class="table">
-                    <a href="{{ url('formtambah')}}" type="button" class="btn btn-primary">Tambah Data</a>
-                    <thead>
-                        <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Merek Sparepart</th>
-                            <th scope="col">Jenis Sparepart</th>
-                            <th scope="col">Dayatahan</th>
-                            <th scope="col">Lisensi</th>
-                            <th scope="col">Harga</th>
+        <div class="p-4 text-light" style="background-color: #059669">
+            <h2 class="font-weight-bold m-0">Daftar Sparepart</h2>
+        </div>
 
-                        </tr>
+        <div class="p-4">
+            <a href="{{ url('formtambah')}}" type="button" class="btn btn-primary">Tambah Data</a>
+            <table class="table my-4">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Merek Sparepart</th>
+                        <th scope="col">Jenis Sparepart</th>
+                        <th scope="col">Dayatahan</th>
+                        <th scope="col">Lisensi</th>
+                        <th scope="col">Harga</th>
 
-                    </thead>
-                    @foreach($sparepart as $p)
-                    <tbody>
-                        <tr>
-                            <td>{{ $p->id_sparepart }}</td>
-                            <td>{{ $p->merek_sparepart }}</td>
-                            <td>{{ $p->Jenis_sparepart }}</td>
-                            <td>{{ $p-> daya_tahan}}</td>
-                            <td>{{ $p->lisensi}}</td>
-                            <td>{{$p->harga}}</td>
-                            <td>
-                                <a href="">Edit</a>
-                                |
-                                <a href="/sparepart/hapus/{{ $p->id_sparepart }}">Hapus</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                    @endforeach
-                </table>
-            </section>
+                    </tr>
+
+                </thead>
+                {{-- @foreach($sparepart as $p)
+                <tbody>
+                    <tr>
+                        <td>{{ $p->id_sparepart }}</td>
+                        <td>{{ $p->merek_sparepart }}</td>
+                        <td>{{ $p->Jenis_sparepart }}</td>
+                        <td>{{ $p-> daya_tahan}}</td>
+                        <td>{{ $p->lisensi}}</td>
+                        <td>{{$p->harga}}</td>
+                        <td>
+                            <a href="">Edit</a>
+                            |
+                            <a href="/sparepart/hapus/{{ $p->id_sparepart }}">Hapus</a>
+                        </td>
+                    </tr>
+                </tbody>
+                @endforeach --}}
+            </table>
         </div>
     </div>
 </div>

@@ -19,7 +19,7 @@
             <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
             <p class="lead">
                 @if (Auth::user()->role == 'user')
-                <a class="btn btn-primary btn-lg" href="#" role="button">Pengambilan Keputusan</a>
+                <a class="btn btn-primary btn-lg" href="{{ route('pengambilankeputusan') }}" role="button">Pengambilan Keputusan</a>
                 @else
                 @endif
             </p>

@@ -9,6 +9,6 @@ class HistoriController extends Controller
 {
     function index()
     {
-        return view('user.histori');
+        return view('User.histori');
     }
 }
