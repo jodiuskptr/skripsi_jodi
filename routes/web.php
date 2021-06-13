@@ -41,3 +41,5 @@ Route::get('sparepart', 'SparepartController@index');
 Route::get('/sparepart/hapus/{id}', 'SparepartController@hapus');
 Route::get('sparepart/tambah', 'SparepartController@tambah');
 Route::get('formtambah', 'FormtambahController@index');
+Route::get('profile', 'ProfileController@index')->name('profile');
+Route::get('profile/edit', 'ProfileController@edit')->name('profile.edit');

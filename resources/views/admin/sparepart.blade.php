@@ -3,8 +3,8 @@
 @section('content')
 <div class="row">
     <div class="col-2 text-center py-4 text-light bg-success" style="min-height: 100vh">
-        <img src="" alt="" class="rounded-circle">
-        <p class="mb-4 mt-3 font-weight-bold h5"></p>
+        <img src="https://picsum.photos/100" alt="" class="rounded-circle d-block mx-auto mb-3">
+        <a href="{{ route('profile') }}" class="mb-4 mt-3 font-weight-bold h5 px-0 text-light">{{ auth()->user()->name }}</a>
 
         <hr class="bg-light">
         @include('layouts.sidebar')
