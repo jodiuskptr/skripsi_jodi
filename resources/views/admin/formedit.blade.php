@@ -26,12 +26,12 @@
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="nama">Merek Sparepart</label>
-                    <input type="text" class="form-control" name="merek" id="nama" required>
+                    <input type="text" class="form-control" name="merek" id="nama" value="{{$sparepart->merek_sparepart}}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="jenis">Jenis Sparepart</label>
-                    <input type="text" class="form-control" name="jenis" id="jenis" required>
+                    <input type="text" class="form-control" name="jenis" id="jenis" value="{{$sparepart->jenis_sparepart}}" required>
                 </div>
 
                 <div class="form-group">

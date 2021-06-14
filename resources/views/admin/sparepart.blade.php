@@ -17,7 +17,7 @@
         </div>
 
         <div class="p-4">
-            <a href="{{ url('formtambah')}}" type="button" class="btn btn-primary">Tambah Data</a>
+            <a href="{{ url('formtambah') }}" type="button" class="btn btn-primary">Tambah Data</a>
             <table class="table my-4">
                 <thead>
                     <tr>
@@ -31,23 +31,23 @@
                     </tr>
 
                 </thead>
-                {{-- @foreach($sparepart as $p)
+                @foreach($sparepart as $p)
                 <tbody>
                     <tr>
                         <td>{{ $p->id_sparepart }}</td>
                         <td>{{ $p->merek_sparepart }}</td>
-                        <td>{{ $p->Jenis_sparepart }}</td>
-                        <td>{{ $p-> daya_tahan}}</td>
+                        <td>{{ $p->jenis_sparepart }}</td>
+                        <td>{{ $p->daya_tahan}}</td>
                         <td>{{ $p->lisensi}}</td>
-                        <td>{{$p->harga}}</td>
+                        <td>{{ $p->harga }}</td>
                         <td>
-                            <a href="">Edit</a>
-                            |
+                            <a href="{{ route('edit.form', $p->id_sparepart) }}">Edit</a>
+
                             <a href="/sparepart/hapus/{{ $p->id_sparepart }}">Hapus</a>
                         </td>
                     </tr>
                 </tbody>
-                @endforeach --}}
+                @endforeach
             </table>
         </div>
     </div>
