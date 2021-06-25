@@ -31,7 +31,13 @@
 
                 <div class="form-group">
                     <label for="jenis">Jenis Sparepart</label>
-                    <input type="text" class="form-control" name="jenis" id="jenis" required>
+                    <select class="form-control" name="jenis" id="jenis">
+                        <option value="1">Vbelt</option>
+                        <option value="2">Roller</option>
+                        <option value="3">Kampas Rem</option>
+                        <option value="4">Kampas Ganda</option>
+                        <option value="5">Oli</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -45,21 +51,15 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="harga">Ukuran</label>
-                    <input type="number" class="form-control" name="ukuran" id="ukuran" required>
-                </div>
-
-
-                <div class="form-group">
                     <label for="inputPertemuan">Lisensi</label>
                     <select class="form-control" name="lisensi" id="lisensi">
-                        <option value="orisinil">Orisinil</option>
+                        <option value="oem">OEM</option>
                         <option value="aftermarket">After Market</option>
 
                     </select>
                 </div>
 
-                <input type="submit" value="Simpan Data" class="btn btn-primary my-3">
+                <button type="submit" class="btn btn-primary my-3">Simpan Data</button>
 
             </form>
         </div>

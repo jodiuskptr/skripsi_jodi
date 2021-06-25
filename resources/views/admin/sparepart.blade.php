@@ -18,6 +18,21 @@
 
         <div class="p-4">
             <a href="{{ url('formtambah') }}" type="button" class="btn btn-primary">Tambah Data</a>
+            <div class="btn-group">
+                <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    Kategori
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Vbelt</a></li>
+                    <li><a class="dropdown-item" href="#">Roller</a></li>
+                    <li><a class="dropdown-item" href="#">Rumah Roller</a></li>
+
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Separated link</a></li>
+                </ul>
+            </div>
             <table class="table my-4">
                 <thead>
                     <tr>
@@ -31,12 +46,12 @@
                     </tr>
 
                 </thead>
-                @foreach($sparepart as $p)
+                @foreach($sparepart as $nomer => $p)
                 <tbody>
                     <tr>
-                        <td>{{ $p->id_sparepart }}</td>
+                        <td>{{ $nomer+1}} </td>
                         <td>{{ $p->merek_sparepart }}</td>
-                        <td>{{ $p->jenis_sparepart }}</td>
+                        <td>{{ $p->nama }}</td>
                         <td>{{ $p->daya_tahan}}</td>
                         <td>{{ $p->lisensi}}</td>
                         <td>{{ $p->harga }}</td>
@@ -46,6 +61,7 @@
                             <a href="/sparepart/hapus/{{ $p->id_sparepart }}">Hapus</a>
                         </td>
                     </tr>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
                 </tbody>
                 @endforeach
             </table>

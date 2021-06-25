@@ -15,10 +15,12 @@ class SparepartController extends Controller
 {
     function index()
     {
-        $sparepart = DB::table('sparepart')->get();
+        $sparepart = DB::table('sparepart')->join('kategori', 'kategori.id', 'sparepart.kategori_id')->orderBy('merek_sparepart', 'asc')->get();
         return view('admin.sparepart', compact('sparepart'));
         // return view('admin.sparepart');
     }
+
+
 
     public function edit($id)
     {
@@ -26,6 +28,8 @@ class SparepartController extends Controller
 
         return view('admin.formedit', compact('sparepart'));
     }
+
+
 
     function hapus($id)
     {
@@ -36,25 +40,22 @@ class SparepartController extends Controller
     public function tambah(Request $request)
     {
 
-
         //$data = $request->except('_method', '_token', 'submit');
         $validator = Validator::make($request->all(), [
             'merek' => 'required',
             'jenis' => 'required',
-            'ukuran' => 'required',
             'ketahanan' => 'required',
             'harga' => 'required',
             'lisensi' => 'required',
         ]);
 
-        if ($validator->fails()) {
-            return redirect()->Back()->withInput()->withErrors($validator);
-        }
+        // if ($validator->fails()) {
+        //     return redirect()->Back()->withInput()->withErrors($validator);
+        // }
 
         Sparepart::create([
             'merek_sparepart' => $request->merek,
-            'jenis_sparepart' => $request->jenis,
-            'ukuran' => $request->ukuran,
+            'kategori_id' => $request->jenis,
             'daya_tahan' => $request->ketahanan,
             'harga' => $request->harga,
             'lisensi' => $request->lisensi,
@@ -70,7 +71,7 @@ class SparepartController extends Controller
         //     Session::flash('alert-class', 'alert-danger');
         // }
 
-        return back();
+        return redirect('/sparepart');
     }
 
 

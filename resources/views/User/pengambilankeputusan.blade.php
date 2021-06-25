@@ -9,95 +9,58 @@
         <hr class="bg-light">
         @include('layouts.sidebar')
 
-    </div>
-    <div class="col-10 pl-0">
-        <div class="p-4 text-light" style="background-color: #059669">
-            <h2 class="font-weight-bold m-0">Pengambilan Keputusan</h2>
-        </div>
+        <div class="col-10 pl-0">
+            <div class="p-4 text-light" style="background-color: #059669">
+                <h2 class="font-weight-bold m-0">Tambah Sparepart</h2>
+            </div>
 
-        <div class="p-4">
-            <h2>Bobot</h2>
-            <h6>Silakan masukan bobot dari setiap kriteria</h6>
-            <form method="POST" action="CalculationPage.php" class="my-4">
-                <div class="row">
-                    <div class="col-md-4 wow fadeInLeft delay-05s">
-                        <div class="service-list">
-                            <div class="service-list-col2">
-                                <div class="form-group">
-                                    <label for="inputBiaya">Motor</label>
-                                    <select class="form-control" id="biaya" name="biaya">
-                                        <option value="1">Honda BeAT</option>
-                                        <option value="2">Honda Scopy</option>
-                                        <option value="3">Honda Vario 125</option>
-                                        <option value="4"></option>
-                                    </select>
-                                </div>
+            <div class="p-4">
+                <a href="{{ url()->previous() }}" type="button" class="text-primary d-inline-flex align-items-center">
+                    <span class="iconify text-primary mr-2" data-icon="mdi:arrow-left" data-inline="false"></span>
+                    Kembali
+                </a>
 
-                                <div class="form-group">
-                                    <label for="inputBiaya">Jenis Sparepart</label>
-                                    <select class="form-control" id="biaya" name="biaya">
-                                        <option value="1">Vbelt</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="inputFasilitas">Bobot Harga</label>
-                                    <select class="form-control" id="fasilitas" name="fasilitas">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="inputPertemuan">Bobot Kualitas</label>
-                                    <select class="form-control" id="pertemuan" name="pertemuan">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="inputKapasitas">Bobot Lisensi Sparepart</label>
-                                    <select class="form-control" id="kapasitas" name="kapasitas">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                    </select>
-                                </div>
-
-                                <br>
-
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary" name="submit">Hitung</button>
-                                </div>
-
-                            </div>
-                        </div>
+                <form action="/sparepart/create" method="post" class="w-50 my-4">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label for="nama">Merek Sparepart</label>
+                        <input type="text" class="form-control" name="merek" id="nama" required>
                     </div>
-                    <div class="col-md-8 wow fadeInLeft delay-05s">
-                        <div>
-                            <h3 class="font-weight-bold">Hasil Perhitungan</h3>
 
-                            <table class="table table-sm table-hover" border="2">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th>Ranking</th>
-                                        <th>Merek</th>
-                                        <th>Harga</th>
-                                        <th>Nilai</th>
-                                    </tr>
-                        </div>
+                    <div class="form-group">
+                        <label for="jenis">Jenis Sparepart</label>
+                        <select class="form-control" name="jenis" id="jenis">
+                            <option value="1">Vbelt</option>
+                            <option value="2">Roller</option>
+                            <option value="3">Kampas Rem</option>
+                            <option value="4">Kampas Ganda</option>
+                            <option value="5">Oli</option>
+                        </select>
                     </div>
-            </form>
+
+                    <div class="form-group">
+                        <label for="ketahanan">Ketahanan Sparepart</label>
+                        <input type="text" class="form-control" name="ketahanan" id="ketahanan" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="harga">Harga</label>
+                        <input type="number" class="form-control" name="harga" id="harga" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPertemuan">Lisensi</label>
+                        <select class="form-control" name="lisensi" id="lisensi">
+                            <option value="oem">OEM</option>
+                            <option value="aftermarket">After Market</option>
+
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary my-3">Simpan Data</button>
+
+                </form>
+            </div>
         </div>
     </div>
-</div>
-@endsection
+    @endsection

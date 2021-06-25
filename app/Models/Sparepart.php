@@ -11,6 +11,6 @@ class Sparepart extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'merek_sparepart', 'jenis_sparepart', 'ukuran', 'daya_tahan', 'harga', 'lisensi'
+        'merek_sparepart', 'kategori_id', 'ukuran', 'daya_tahan', 'harga', 'lisensi'
     ];
 }

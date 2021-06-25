@@ -13,7 +13,7 @@
 
     <div class="col-10 pl-0">
         <div class="p-4 text-light" style="background-color: #059669">
-            <h2 class="font-weight-bold m-0">Tambah Sparepart</h2>
+            <h2 class="font-weight-bold m-0">Edit Sparepart</h2>
         </div>
 
         <div class="p-4">
@@ -24,6 +24,7 @@
 
             <form action="/sparepart/create" method="post" class="w-50 my-4">
                 {{ csrf_field() }}
+
                 <div class="form-group">
                     <label for="nama">Merek Sparepart</label>
                     <input type="text" class="form-control" name="merek" id="nama" value="{{$sparepart->merek_sparepart}}" required>
@@ -31,35 +32,35 @@
 
                 <div class="form-group">
                     <label for="jenis">Jenis Sparepart</label>
-                    <input type="text" class="form-control" name="jenis" id="jenis" value="{{$sparepart->jenis_sparepart}}" required>
+                    <select class="form-control" name="jenis" id="jenis">
+                        <option value="1">Vbelt</option>
+                        <option value="2">Roller</option>
+                        <option value="3">Kampas Rem</option>
+                        <option value="4">Kampas Ganda</option>
+                        <option value="5">Oli</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
                     <label for="ketahanan">Ketahanan Sparepart</label>
-                    <input type="text" class="form-control" name="ketahanan" id="ketahanan" required>
+                    <input type="text" class="form-control" name="ketahanan" id="ketahanan" value="{{$sparepart->daya_tahan}}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="harga">Harga</label>
-                    <input type="number" class="form-control" name="harga" id="harga" required>
+                    <input type="number" class="form-control" name="harga" id="harga" value="{{$sparepart->harga}}" required>
                 </div>
-
-                <div class="form-group">
-                    <label for="harga">Ukuran</label>
-                    <input type="number" class="form-control" name="ukuran" id="ukuran" required>
-                </div>
-
 
                 <div class="form-group">
                     <label for="inputPertemuan">Lisensi</label>
                     <select class="form-control" name="lisensi" id="lisensi">
-                        <option value="orisinil">Orisinil</option>
+                        <option value="oem">OEM</option>
                         <option value="aftermarket">After Market</option>
 
                     </select>
                 </div>
 
-                <input type="submit" value="Simpan Data" class="btn btn-primary my-3">
+                <button type="submit" class="btn btn-primary my-3">Simpan Data</button>
 
             </form>
         </div>

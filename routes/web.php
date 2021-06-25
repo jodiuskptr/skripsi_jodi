@@ -36,6 +36,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('pengambilankeputusan', 'PengambilankeputusanController@index')->name('pengambilankeputusan');
+Route::get('detailperhitungan', 'DetailperhitunganController@index')->name('detailperhitungan');
 Route::get('histori', 'HistoriController@index');
 Route::get('sparepart', 'SparepartController@index');
 Route::get('/sparepart/hapus/{id}', 'SparepartController@hapus');
