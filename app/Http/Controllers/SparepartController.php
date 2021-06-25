@@ -34,7 +34,7 @@ class SparepartController extends Controller
     function hapus($id)
     {
         DB::table('sparepart')->where('id_sparepart', $id)->delete();
-        return redirect('/sparepart');
+        return redirect('/sparepart')->with('message', 'Artikel berhasil dihapus!');
     }
 
     public function tambah(Request $request)
@@ -71,7 +71,7 @@ class SparepartController extends Controller
         //     Session::flash('alert-class', 'alert-danger');
         // }
 
-        return redirect('/sparepart');
+        return redirect('/sparepart')->with('message', 'Artikel berhasil disimpan!');
     }
 
 
