@@ -18,6 +18,13 @@
 
         <div class="p-4">
             <a href="{{ url('formtambah') }}" type="button" class="btn btn-primary">Tambah Data</a>
+
+            @if (session()->has('message'))
+                <div class="my-4 alert alert-success">
+                    {{ session('message') }}
+                </div>
+            @endif
+
             <table class="table my-4">
                 <thead>
                     <tr>
@@ -31,25 +38,30 @@
                     </tr>
 
                 </thead>
-                @foreach($sparepart as $p)
+                {{-- @foreach($sparepart as $p) --}}
                 <tbody>
                     <tr>
-                        <td>{{ $p->id_sparepart }}</td>
+                        {{-- <td>{{ $p->id_sparepart }}</td>
                         <td>{{ $p->merek_sparepart }}</td>
                         <td>{{ $p->jenis_sparepart }}</td>
                         <td>{{ $p->daya_tahan}}</td>
                         <td>{{ $p->lisensi}}</td>
-                        <td>{{ $p->harga }}</td>
+                        <td>{{ $p->harga }}</td> --}}
                         <td>
-                            <a href="{{ route('edit.form', $p->id_sparepart) }}">Edit</a>
+                            {{-- <a href="{{ route('edit.form', $p->id_sparepart) }}" class="btn btn-info">
+                                <span class="iconify" data-icon="mdi:pencil" data-inline="false" style="color: #fff;" data-width="16px" data-height="16px"></span>
+                            </a> --}}
 
-                            <a href="/sparepart/hapus/{{ $p->id_sparepart }}">Hapus</a>
+                            {{-- <a href="/sparepart/hapus/{{ $p->id_sparepart }}" class="btn btn-danger">
+                                <span class="iconify" data-icon="mdi:trash-can" data-inline="false" style="color: #fff;" data-width="16px" data-height="16px"></span>
+                            </a> --}}
                         </td>
                     </tr>
                 </tbody>
-                @endforeach
+                {{-- @endforeach --}}
             </table>
         </div>
     </div>
+
 </div>
 @endsection
