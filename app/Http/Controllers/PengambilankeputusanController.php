@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Motor;
 use App\Http\Controllers\Controller;
 use App\Histori;
 use App\Konversi;
+use App\Models\Motor;
 use App\Models\Sparepart;
+use App\Models\Kategori;
 use App\Kriteria;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class PengambilankeputusanController extends Controller
     function index()
     {
         $motor = Motor::get();
-        return view('User.pengambilankeputusan', compact('motor'));
+        $kategori = Kategori::get();
+        return view('User.pengambilankeputusan', compact('motor', 'kategori'));
     }
 
     function hitung(Request $request)

@@ -8,59 +8,110 @@
 
         <hr class="bg-light">
         @include('layouts.sidebar')
+    </div>
 
-        <div class="col-10 pl-0">
-            <div class="p-4 text-light" style="background-color: #059669">
-                <h2 class="font-weight-bold m-0">Tambah Sparepart</h2>
-            </div>
+    <div class="col-10 pl-0">
+        <div class="p-4 text-light" style="background-color: #059669">
+            <h2 class="font-weight-bold m-0">Pengambilan Keputusan</h2>
+        </div>
 
-            <div class="p-4">
-                <a href="{{ url()->previous() }}" type="button" class="text-primary d-inline-flex align-items-center">
-                    <span class="iconify text-primary mr-2" data-icon="mdi:arrow-left" data-inline="false"></span>
-                    Kembali
-                </a>
+        <section class="main-section" id="service">
+            <!--main-section-start-->
+            <div class="container">
+                <h2>Bobot</h2>
+                <h6>Silakan masukan bobot dari setiap kriteria</h6>
+                <form method="POST" action="CalculationPage.php">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3 wow fadeInLeft delay-05s">
+                            <div class="service-list">
+                                <div class="service-list-col1">
+                                </div>
+                                <div class="service-list-col2">
 
-                <form action="/sparepart/create" method="post" class="w-50 my-4">
-                    {{ csrf_field() }}
-                    <div class="form-group">
-                        <label for="nama">Merek Sparepart</label>
-                        <input type="text" class="form-control" name="merek" id="nama" required>
+                                    <div class="form-group">
+                                        <label for="inputBiaya">Jenis Motor</label>
+                                        <select class="form-control" id="motor" name="motor">
+                                            @foreach($motor as $p)
+                                            <option value="{{$p->id_motor}}">{{$p->merek_motor}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="inputPertemuan">Spare Part</label>
+                                        <select class="form-control" id="Spare_part" name="Spare_part">
+                                            @foreach($kategori as $p)
+                                            <option value="{{$p->id}}">{{$p->nama}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="inputFasilitas">Harga</label>
+                                        <select class="form-control" id="harga" name="harga">
+                                            <option value="1">Tidak Penting</option>
+                                            <option value="2">Penting</option>
+                                            <option value="3">Sangat Penting</option>
+                                            <option value="4">Mutlak Penting</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="inputPertemuan">Dayatahan</label>
+                                        <select class="form-control" id="daya_tahan" name="daya_tahan">
+                                            <option value="1">Tidak Penting</option>
+                                            <option value="2">Penting</option>
+                                            <option value="3">Sangat Penting</option>
+                                            <option value="4">Mutlak Penting</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="inputKapasitas">Lisensi</label>
+                                        <select class="form-control" id="lisensi" name="lisensi">
+                                            <option value="1">Tidak Penting</option>
+                                            <option value="2">Penting</option>
+                                            <option value="3">Sangat Penting</option>
+                                            <option value="4">Mutlak Penting</option>
+                                        </select>
+                                    </div>
+
+                                    <br>
+
+                                    <div class="form-group">
+                                        <button type="submit" class="input-btn" name="submit">Hitung</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <br>
+                            <h3 class="font-weight-bold">Hasil Perhitungan</h3>
+                            <table class="table table-sm table-hover" border="2">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Nama Bimbel</th>
+                                        <th>Nilai</th>
+                                        <th>Biaya</th>
+                                        <th>Fasilitas</th>
+                                        <th>Jumlah Pertemuan</th>
+                                        <th>Kapasitas</th>
+                                        <th>Alamat</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            </<br>
+                        </div>
+                        <div>
+
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="jenis">Jenis Sparepart</label>
-                        <select class="form-control" name="jenis" id="jenis">
-                            <option value="1">Vbelt</option>
-                            <option value="2">Roller</option>
-                            <option value="3">Kampas Rem</option>
-                            <option value="4">Kampas Ganda</option>
-                            <option value="5">Oli</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="ketahanan">Ketahanan Sparepart</label>
-                        <input type="text" class="form-control" name="ketahanan" id="ketahanan" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="harga">Harga</label>
-                        <input type="number" class="form-control" name="harga" id="harga" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputPertemuan">Lisensi</label>
-                        <select class="form-control" name="lisensi" id="lisensi">
-                            <option value="oem">OEM</option>
-                            <option value="aftermarket">After Market</option>
-
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary my-3">Simpan Data</button>
-
+                    <div class="col-md-2"></div>
                 </form>
             </div>
-        </div>
+        </section>
     </div>
-    @endsection
+</div>
+@endsection
